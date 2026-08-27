@@ -66,7 +66,6 @@ I used Power BI to create:
 - KPI cards
 - Monthly sales trends
 - Product analysis
-- Order status analysis
 
 ## Key Insights
 
