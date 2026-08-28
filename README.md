@@ -75,8 +75,8 @@ The monthly revenue average sits at 105.3k and while it peaks at 171k in June, t
 Key Insight 2: Product Performance by Revenue
 Chairs generated the highest revenue at 195.62k, while phones generated the lowest at 151.72k (43.9k lower than its highest counterpart, chairs)
 
-## Project Files[
-link to google drive - https://drive.google.com/drive/folders/1kKZUcFoCJFh83EWTKED_52EaXFVZoNoZ?usp=drive_link](https://drive.google.com/drive/folders/1X4H-Bn_7luWxzfNz1vcm4qqDaPRkXX3e?usp=drive_link)
+## Project Files
+[link to google drive - https://drive.google.com/drive/folders/1kKZUcFoCJFh83EWTKED_52EaXFVZoNoZ?usp=drive_link](https://drive.google.com/drive/folders/1X4H-Bn_7luWxzfNz1vcm4qqDaPRkXX3e?usp=drive_link)
 
 - `decodelabs_project_2.sql` - SQL code used for cleaning and analysis
 - `Dataset for Data Analytics - Sheet1.csv` - sales dataset
