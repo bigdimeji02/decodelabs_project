@@ -89,4 +89,55 @@ Chairs generated the highest revenue at 195.62k, while phones generated the lowe
 
 ## What I Learned
 
-This project helped me practice using SQL to clean and analyze data and Power BI to turn the results into simple charts and business insights.
+### IQR and Outliers
+
+I learned how the **IQR (Interquartile Range)** is used to find possible outliers in a dataset.
+
+The formula is:
+
+**IQR = Q3 - Q1**
+
+We then use the IQR to calculate the lower and upper boundaries:
+
+* Lower boundary = Q1 - 1.5 × IQR
+* Upper boundary = Q3 + 1.5 × IQR
+
+Values outside these boundaries can be flagged as possible outliers.
+
+### `percentile_cont`
+
+I also learned about `percentile_cont`.
+
+The **`cont` means continuous**. This means the function treats the data as a continuous distribution, so the result does not always have to be one of the actual values in the dataset.
+
+It can be used to calculate the median, but percentile functions become more useful when we want to find things like the:
+
+* 80th percentile
+* 90th percentile
+* 95th percentile
+
+### `CROSS JOIN`
+
+I learned that a `CROSS JOIN` does not need specific columns to match.
+
+In our case, we used it to make the calculated boundaries available to every row so we could test each row against them.
+
+I still need to read more about `CROSS JOIN` to fully understand it.
+
+### Debugging the Query
+
+Our CTE query did not work as expected, so instead of guessing where the problem was, we ran different queries to find where the code was breaking.
+
+We used `SELECT COUNT()` and checked the **minimum and maximum values** of the columns.
+
+We used these results to cross-check the `0` that was returned. The `0` meant that no outliers were found in that check.
+
+This helped me understand the importance of breaking a query into smaller parts when it does not work.
+
+### Inspecting the Outliers
+
+We eventually found outliers in the **`TotalPrice`** column.
+
+Finding an outlier does not automatically mean that the value is wrong.
+
+Because of that, the next step is to inspect the outliers and validate them before deciding what to do with them.
