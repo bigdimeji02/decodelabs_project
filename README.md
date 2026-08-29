@@ -120,7 +120,7 @@ It can be used to calculate the median, but percentile functions become more use
 
 I learned that a `CROSS JOIN` does not need specific columns to match.
 
-In our case, we used it to make the calculated boundaries available to every row so we could test each row against them.
+It creates every possible combination of rows between the tables. In our case, we used it to make the calculated boundaries available to every row so we could test each row against them.
 
 I still need to read more about `CROSS JOIN` to fully understand it.
 
