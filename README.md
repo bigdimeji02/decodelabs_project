@@ -89,9 +89,11 @@ Chairs generated the highest revenue at 195.62k, while phones generated the lowe
 
 ## What I Learned
 
+Most of the work in this project was familiar to me before the internship. However, I learned a few new things while working through this project.
+
 ### IQR and Outliers
 
-I learned how the **IQR (Interquartile Range)** is used to find possible outliers in a dataset.
+I learned how the **IQR (Interquartile Range)** can be used to find possible outliers in a dataset.
 
 The formula is:
 
@@ -108,36 +110,50 @@ Values outside these boundaries can be flagged as possible outliers.
 
 I also learned about `percentile_cont`.
 
-The **`cont` means continuous**. This means the function treats the data as a continuous distribution, so the result does not always have to be one of the actual values in the dataset.
+The **`cont` means continuous**. It treats the data as a continuous distribution, so the result does not always have to be one of the actual values in the dataset.
 
-It can be used to calculate the median, but percentile functions become more useful when we want to find things like the:
+It can be used to calculate the median, but it is also useful for finding other percentiles, such as:
 
 * 80th percentile
 * 90th percentile
 * 95th percentile
 
+### Using a CTE to Find Outliers
+
+One of the new things I learned was how to use a **CTE (Common Table Expression)** to connect different parts of our analysis.
+
+Before this project, I could calculate quartiles, but I did not know how to take those results and use them in another query.
+
+We created a CTE that used the quartile results to calculate the lower and upper boundaries. We then used those boundaries to check the data for possible outliers.
+
+This helped me understand how the result of one part of a SQL analysis can be used in another part of the query.
+
 ### `CROSS JOIN`
 
 I learned that a `CROSS JOIN` does not need specific columns to match.
 
-It creates every possible combination of rows between the tables. In our case, we used it to make the calculated boundaries available to every row so we could test each row against them.
+It creates every possible combination of rows between two tables.
 
-I still need to read more about `CROSS JOIN` to fully understand it.
+In our case, we used it to make the calculated boundaries available to every row so we could check each row against those boundaries.
+
+I still need to learn more about `CROSS JOIN` to fully understand all of its uses.
 
 ### Debugging the Query
 
-Our CTE query did not work as expected, so instead of guessing where the problem was, we ran different queries to find where the code was breaking.
+Our CTE query did not work as expected.
+
+Instead of guessing where the problem was, we broke the query into smaller checks.
 
 We used `SELECT COUNT()` and checked the **minimum and maximum values** of the columns.
 
-We used these results to cross-check the `0` that was returned. The `0` meant that no outliers were found in that check.
+We used these results to cross-check the `0` returned by our outlier query.
 
-This helped me understand the importance of breaking a query into smaller parts when it does not work.
+This helped me understand why breaking a large query into smaller parts can make debugging easier.
 
 ### Inspecting the Outliers
 
-We eventually found outliers in the **`TotalPrice`** column.
+We eventually found possible outliers in the **`TotalPrice`** column.
 
-Finding an outlier does not automatically mean that the value is wrong.
+I learned that finding an outlier does not automatically mean that the value is wrong.
 
-Because of that, the next step is to inspect the outliers and validate them before deciding what to do with them.
+The next step is to inspect the values and validate them before deciding what to do with them.
